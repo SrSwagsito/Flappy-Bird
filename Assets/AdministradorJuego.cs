@@ -55,4 +55,6 @@ public class AdministradorJuego : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    
+
 }

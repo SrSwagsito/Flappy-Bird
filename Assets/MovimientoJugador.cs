@@ -17,4 +17,12 @@ public class MovimientoJugador : MonoBehaviour
     {
         rigidbody2.velocity = new Vector2(0, fuerzasalto);
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+            AdministradorJuego.instancia.FinalizarJuego();
+        }
+    }
 }

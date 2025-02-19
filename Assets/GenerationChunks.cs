@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GenerationChunks : MonoBehaviour
 {
+    [SerializeField] bool instanciar;
     [SerializeField] List<Transform> pivotes = new List<Transform>();
-    List<GameObject> instanciarObstaculos = new List<GameObject>();
+    [SerializeField] List<GameObject> instanciarObstaculos = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        GenerarObstaculos();
+        if (instanciar == true)
+        {
+            GenerarObstaculos();
+        }
 
-    }   
+    }
 
     public void GenerarObstaculos()
     {
@@ -20,7 +24,7 @@ public class GenerationChunks : MonoBehaviour
 
         for (int i = 0; i < pivotes.Count; i++)
         {
-           int numeroAleatorio = Random.Range(1,6);
+            int numeroAleatorio = Random.Range(1, 6);
 
             GameObject obstaculo = (GameObject)Instantiate(Resources.Load("Obstaculo " + numeroAleatorio), pivotes[i]);
             obstaculo.transform.localPosition = Vector3.zero;
@@ -29,7 +33,7 @@ public class GenerationChunks : MonoBehaviour
     }
     public void BorrarObstaculos()
     {
-        for(int i = 0;i < instanciarObstaculos.Count;i++)
+        for (int i = 0; i < instanciarObstaculos.Count; i++)
         {
             Destroy(instanciarObstaculos[i]);
 
