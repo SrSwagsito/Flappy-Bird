@@ -22,7 +22,14 @@ public class MovimientoJugador : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Respawn"))
         {
-            AdministradorJuego.instancia.FinalizarJuego();
+            StartCoroutine(MuerteJugador());
         }
     }
+
+    public IEnumerator MuerteJugador() 
+    {
+        yield return new WaitForSeconds(2);
+        AdministradorJuego.instancia.FinalizarJuego();
+    }
+
 }
