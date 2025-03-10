@@ -28,7 +28,7 @@ public class MovimientoJugador : MonoBehaviour
 
     public IEnumerator MuerteJugador() 
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
         AdministradorJuego.instancia.FinalizarJuego();
     }
 
